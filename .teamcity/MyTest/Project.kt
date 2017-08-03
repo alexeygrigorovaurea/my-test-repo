@@ -1,5 +1,6 @@
 package MyTest
 
+import MyTest.buildTypes.*
 import jetbrains.buildServer.configs.kotlin.v10.*
 import jetbrains.buildServer.configs.kotlin.v10.Project
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.VersionedSettings
@@ -12,13 +13,15 @@ object Project : Project({
     parentId = "_Root"
     name = "my-test"
 
+    buildType(MyTest_CiBuild)
+
     features {
         versionedSettings {
             id = "PROJECT_EXT_1"
             mode = VersionedSettings.Mode.ENABLED
             buildSettingsMode = VersionedSettings.BuildSettingsMode.PREFER_SETTINGS_FROM_VCS
             rootExtId = "MyTestRepo"
-            showChanges = true
+            showChanges = false
             settingsFormat = VersionedSettings.Format.KOTLIN
         }
     }
