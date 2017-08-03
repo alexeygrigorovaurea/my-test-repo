@@ -11,8 +11,8 @@ import jetbrains.buildServer.configs.kotlin.v10.triggers.vcs
 object MyTest_CiBuild : BuildType({
     uuid = "8e7d5553-d1d4-4f5e-b72a-64e849cb3f1c"
     extId = "MyTest_CiBuild"
-    name = "ci build"
-    description = "some test build"
+    name = "ci build- updated"
+    description = "some test build for develop"
 
     vcs {
         root("MyTestRepo")
@@ -21,7 +21,7 @@ object MyTest_CiBuild : BuildType({
 
     steps {
         exec {
-            path = "test.sh"
+            path = "test2.sh"
         }
     }
 
