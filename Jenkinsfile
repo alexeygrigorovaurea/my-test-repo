@@ -13,7 +13,10 @@ pipeline {
         }
         stage('Accept') {
             agent {
-                docker 'maven:3-alpine'
+                docker {
+                    image 'maven:3-alpine'
+                    withServer 'tcp://172.17.0.1:2375'
+                }
             }
             steps {
                 sh "echo hihi && chmod +x test.sh &&./test.sh"
