@@ -1,11 +1,11 @@
 pipeline {
     agent any
-    tool 'maven'
     stages {
         stage('build') {
+            tools maven
             steps {
                 sh 'mvn --version'
-		sh 'test.sh'
+                sh 'test.sh'
             }
         }
     }
