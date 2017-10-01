@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    environment {
+        DOCKER_HOST = '172.17.0.1'
+    }
     stages {
         stage('build') {
             agent any
@@ -13,10 +16,7 @@ pipeline {
         }
         stage('Accept') {
             agent {
-                docker {
-                    image 'maven:3-alpine'
-                    withServer 'tcp://172.17.0.1:2375'
-                }
+                docker 'maven:3-alpine'
             }
             steps {
                 sh "echo hihi && chmod +x test.sh &&./test.sh"
