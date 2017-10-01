@@ -12,9 +12,9 @@ pipeline {
             }
         }
         stage('Accept') {
-            agent none
+            agent any
             steps {
-                sh "echo hi"
+                sh "echo hihi &&./test.sh"
                 input 'pls accept'
             }
         }
