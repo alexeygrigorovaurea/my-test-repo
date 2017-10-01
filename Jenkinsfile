@@ -9,6 +9,11 @@ pipeline {
                 sh 'mvn --version'
                 sh 'chmod +x test.sh && ./test.sh'
             }
+        } stage('Accept') {
+            agent none
+            steps {
+                input 'pls accept'
+            }
         }
     }
 }
