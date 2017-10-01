@@ -13,6 +13,7 @@ pipeline {
         stage('Accept') {
             agent none
             steps {
+                sh "echo hi"
                 input 'pls accept'
             }
         }
