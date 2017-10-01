@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 sh 'mvn --version'
-                sh './test.sh'
+                sh 'chmod +x test.sh && ./test.sh'
             }
         }
     }
