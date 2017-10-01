@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 sh 'mvn --version'
-                sh 'test.sh'
+                sh './test.sh'
             }
         }
     }
