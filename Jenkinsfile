@@ -12,9 +12,11 @@ pipeline {
             }
         }
         stage('Accept') {
-            agent any
+            agent {
+                docker 'maven:3-alpine'
+            }
             steps {
-                sh "echo hihi &&./test.sh"
+                sh "echo hihi && chmod +x test.sh &&./test.sh"
                 input 'pls accept'
             }
         }
